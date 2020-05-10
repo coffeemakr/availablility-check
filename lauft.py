@@ -55,7 +55,7 @@ def load_config(config_path):
 
 def run():
 	failed = False
-	config_path = Path.home() / '.config/avail/config.json'
+	config_path = Path.home() / '.config/lauft/config.json'
 	for config in load_config(config_path):
 		checking(config.url)
 		try:

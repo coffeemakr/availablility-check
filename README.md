@@ -1,8 +1,8 @@
-# Avail
+# Lauft
 Python command line tool to check website availability.
 
 ## Configuration
-Configuration is loaded from `$HOME/.config/avail/config.json`.
+Configuration is loaded from `$HOME/.config/lauft/config.json`.
 
 ```json
 {"services":[
@@ -12,6 +12,4 @@ Configuration is loaded from `$HOME/.config/avail/config.json`.
 ```
 
 ## Usage
-```
-avail
-```
+Run `lauft` after installing it.

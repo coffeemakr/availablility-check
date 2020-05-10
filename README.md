@@ -10,3 +10,8 @@ Configuration is loaded from `$HOME/.config/avail/config.json`.
   {"url": "https://example.org"}
 ]}
 ```
+
+## Usage
+```
+avail
+```

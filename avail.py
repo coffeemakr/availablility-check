@@ -2,6 +2,7 @@ import requests
 import re
 from pathlib import Path
 import json
+import sys
 
 BLUE = '\033[94m'
 GREEN = '\033[92m'
@@ -50,9 +51,10 @@ def load_config(config_path):
 	with config_path.open() as configfile:
 		config_json = json.load(configfile)
 	for config_entry in config_json["services"]:
-		yield Configuration(config_entry["url"], title=config_entry["title"])
+		yield Configuration(config_entry["url"], title=config_entry.get("title"))
 
 def run():
+	failed = False
 	config_path = Path.home() / '.config/avail/config.json'
 	for config in load_config(config_path):
 		checking(config.url)
@@ -60,10 +62,15 @@ def run():
 			config.check()
 		except CheckException as e:
 			fail(config.url, str(e))
+			failed = True
 		except Exception as e:
 			fail(config.url, str(e))
+			failed = True
 		else:
 			ok(config.url)
+
+	if failed:
+		sys.exit(1)
 
 if __name__ == "__main__":
 	run()

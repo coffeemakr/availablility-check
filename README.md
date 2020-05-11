@@ -1,4 +1,4 @@
-# Lauft
+# Läuft
 Python command line tool to check website availability.
 
 ## Configuration
